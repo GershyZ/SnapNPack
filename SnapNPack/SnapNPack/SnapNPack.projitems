@@ -10,14 +10,55 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ContainerModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PackageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\AddContainerPage.xaml.cs">
+      <DependentUpon>AddContainerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\AddPackagePage.xaml.cs">
+      <DependentUpon>AddPackagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ImagePreviewPage.xaml.cs">
+      <DependentUpon>ImagePreviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ContainerPageVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PackagePageVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FastImageView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)icon.png" />
+    <Content Include="$(MSBuildThisFileDirectory)i_camera.png" />
+    <Content Include="$(MSBuildThisFileDirectory)i_container.png" />
+    <Content Include="$(MSBuildThisFileDirectory)i_pack.png" />
+    <Content Include="$(MSBuildThisFileDirectory)i_unpack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\AddContainerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\AddPackagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\ImagePreviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

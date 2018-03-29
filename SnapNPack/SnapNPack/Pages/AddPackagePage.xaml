@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SnapNPack.Views"
+             x:Class="SnapNPack.Pages.AddPackagePage"
+             Title="Pack Stuff" BackgroundColor="LightSeaGreen">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Description" Text="{Binding Path=Description, Mode=OneWayToSource}" 
+                   BackgroundColor="PaleGoldenrod" FontSize="Large"/>
+            <local:FastImageView ImageSrc="{Binding ImageSrc}" WidthRequest="200" HeightRequest="200"/>
+            <StackLayout Orientation="Horizontal">
+                <Label  Text="Fragile"/>
+                <Switch IsToggled="{Binding Fragile}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image x:Name="picBtn" Source="i_camera.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            NumberOfTapsRequired="1"
+                            Tapped="picBtn_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="createBtn" Source="i_pack.png" BackgroundColor="PaleGoldenrod">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            NumberOfTapsRequired="1"
+                            Tapped="createBtn_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

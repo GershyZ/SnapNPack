@@ -10,6 +10,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
@@ -25,9 +26,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>SnapNPack</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.SnapNPack</string>
+	<string>com.gezebo.snapnpack</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.90</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-60@2x</string>
@@ -50,5 +51,9 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>SnapNPack</string>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Resources/Images.xcassets/LaunchImages.launchimage</string>
 </dict>
 </plist>
