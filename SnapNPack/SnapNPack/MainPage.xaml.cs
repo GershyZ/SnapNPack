@@ -47,7 +47,7 @@ namespace SnapNPack
             try
             {
                 //Try to cast the selected container item in the container carousel to a container model
-                var item = CarouselContainers.Item as ContainerModel;
+                var item = CarouselContainers.CurrentItem as ContainerModel;
 
                 Debug.WriteLine(item.Id);
 
@@ -84,7 +84,7 @@ namespace SnapNPack
             if (CarouselContainers.ItemsSource.OfType<ContainerModel>().Count() > 0)
             {
                 //get the container reference
-                var container = CarouselContainers.Item as ContainerModel;
+                var container = CarouselContainers.CurrentItem as ContainerModel;
                 //open add package page
                 await Navigation.PushAsync(new AddPackagePage(container.Id));
             }
@@ -103,14 +103,14 @@ namespace SnapNPack
             try
             {
                 //cast the current container to containermodel
-                var container = CarouselContainers.Item as ContainerModel;
+                var container = CarouselContainers.CurrentItem as ContainerModel;
                 //cast the current package to packagemodel
                 if (container.Packages.Count == 0)
                 {
                     await DisplayAlert("Unable to unpack", "This container is empty. Press the button with the green arrow pointing in to add stuff in here", "OK");
                     return;
                 }
-                var package = CarouselPackages.Item as PackageModel;
+                var package = CarouselPackages.CurrentItem as PackageModel;
                 Debug.WriteLine("Action: Delete Package: " + package.Id);
                 var found = false;
                 foreach (var c in temp)
@@ -173,7 +173,7 @@ namespace SnapNPack
         private void packageImageView_Clicked(object sender, EventArgs e)
         {
             //get our current package
-            var p = CarouselPackages.Item as PackageModel;
+            var p = CarouselPackages.CurrentItem as PackageModel;
             //open image preview page with our image file path
             Navigation.PushAsync(new ImagePreviewPage(p.ImageFile));
         }
@@ -181,7 +181,7 @@ namespace SnapNPack
         private void containerPackageView_Clicked(object sender, EventArgs e)
         {
             //same like packageImageView_Clicked() but for containers
-            var c = CarouselContainers.Item as ContainerModel;
+            var c = CarouselContainers.CurrentItem as ContainerModel;
             Navigation.PushAsync(new ImagePreviewPage(c.ImageFile));
         }
 

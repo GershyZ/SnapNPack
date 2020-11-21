@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:SnapNPack.Views"
-             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+             xmlns:local="clr-namespace:SnapNPack.Views"             
              x:Class="SnapNPack.MainPage"
              NavigationPage.HasNavigationBar="False">
 
@@ -23,36 +22,30 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <!--Add the new CarouselView control. Functions exactly like the carouselpage but can be added to other pages. Available on nuget-->
-            <!--Here we bind our itemsource to a property "Containers" which exist in MainPageVM because we set it as out binding context in MainPage.xaml.cs 
-                you can read more about data binding at https://developer.xamarin.com/guides/xamarin-forms/xaml/xaml-basics/data_bindings_to_mvvm/ -->
-            <cv:CarouselView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Containers}"
+        <CarouselView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Containers}"
                 x:Name="CarouselContainers" BackgroundColor="BurlyWood">
-                <cv:CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <!--Add our custom image view and once again bind its value a property called ImageFile. Note because we are in a data template
-                            we do not bind against are bindingcontext instead we are binding against the items that will populate the carousel itemsSource-->
-                            <local:FastImageView x:Name="containerPackageView" Grid.Column="0" Grid.Row="0" ImageSrc="{Binding ImageFile}" 
-                                                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                <local:FastImageView.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="2"
-                                                          Tapped="containerPackageView_Clicked"/>
-                                </local:FastImageView.GestureRecognizers>
-                            </local:FastImageView>
-                            <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
-                                <Label TextColor="White" Text="{Binding Destination}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-                            </StackLayout>
-                        </Grid>
-                    </DataTemplate>
-                </cv:CarouselView.ItemTemplate>
-            </cv:CarouselView>
-            <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" x:Name="functionContainers">
+            <CarouselView.ItemTemplate>                
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <local:FastImageView x:Name="containerPackageView" Grid.Column="0" Grid.Row="0" ImageSrc="{Binding ImageFile}" 
+                                                VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <local:FastImageView.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="2"
+                                                        Tapped="containerPackageView_Clicked"/>
+                            </local:FastImageView.GestureRecognizers>
+                        </local:FastImageView>
+                        <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+                            <Label TextColor="White" Text="{Binding Destination}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>     
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" x:Name="functionContainers">
                 <Button x:Name="unpackContainer" Text="-" Clicked="removeContainer_Clicked" IsVisible="False"/>
                 <Image x:Name="addContainer" Source="i_container.png">
                     <Image.GestureRecognizers>
@@ -78,11 +71,9 @@
                                               Tapped="TitleLabel_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
-
-            <!--Same deal here but for packages-->
-            <cv:CarouselView Grid.Column="0" Grid.Row="3" BindingContext="{x:Reference Name=CarouselContainers}"
-                ItemsSource="{Binding Path=Item.Packages}" x:Name="CarouselPackages" BackgroundColor="LightSeaGreen">
-                <cv:CarouselView.ItemTemplate>
+            <CarouselView Grid.Column="0" Grid.Row="3" BindingContext="{x:Reference Name=CarouselContainers}"
+                ItemsSource="{Binding Path=Item.Packages}" x:Name="CarouselPackages" BackgroundColor="LightSeaGreen">               
+                <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -101,8 +92,8 @@
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
-                </cv:CarouselView.ItemTemplate>
-            </cv:CarouselView>
+                </CarouselView.ItemTemplate>
+            </CarouselView>            
             <StackLayout Grid.Column="0" Grid.Row="3" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" x:Name="functionPackages">
                 <Image x:Name="removePackage"  Source="i_unpack.png">
                     <Image.GestureRecognizers>

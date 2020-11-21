@@ -10,16 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\ContainerModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PackageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AddContainerPage.xaml.cs">
@@ -35,6 +35,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageVM.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PackagePageVM.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\FastImageView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)icon.png" />
@@ -44,10 +47,6 @@
     <Content Include="$(MSBuildThisFileDirectory)i_unpack.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\AddContainerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

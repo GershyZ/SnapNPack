@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.SnapNPack">
-	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="SnapNPack.Android"></application>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.gezebo.SnapNPack">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<application android:label="SnapNPack.Android" android:icon="@drawable/icon"></application>
 </manifest>
